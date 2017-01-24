@@ -14,7 +14,10 @@
         /* @ngInject */
         mails: function ($http) {
           return $http.get('mock/mail.json').then(function (response) {
-            return response.data;
+            var mails = _(response.data).forEach(function(mail){
+              mail.dateFormate = new Date(moment(mail.created_at, "DD/MM/YYYY hh:mm:ss"));
+            })
+            return mails;
           });
         },
         categories : function($http){

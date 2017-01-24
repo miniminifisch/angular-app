@@ -2,7 +2,7 @@
 <h3 class="titre-mobile align-center">Inbox</h3>
 
 <div id="mails">
-  <div class="mail" ng-repeat="mail in mlc.mails | filter : mlc.nomCategorieSelectionnee" ng-click="mlc.lireMail(mail)">
+  <div class="mail" ng-repeat="mail in mlc.mails | filter : mlc.nomCategorieSelectionnee | orderBy: 'dateFormate'" ng-click="mlc.lireMail(mail)">
     <div>
       <span ng-style="{'background-color' : mail.codeCouleur}" class="carre"></span>
       <span class="strong">{{mail.owner}}</span>

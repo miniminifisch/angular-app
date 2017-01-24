@@ -13,7 +13,6 @@
     vm.mailSelectionne = null;
     vm.nomCategorieSelectionnee = "";
     vm.lectureActive = false;
-    
   }
 
 })();

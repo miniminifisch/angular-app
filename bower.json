@@ -12,7 +12,8 @@
     "garden": "0.31.0",
     "underscore": "1.8.3",
     "angular-translate": "2.13.0",
-    "angular-translate-loader-static-files": "2.13.0"
+    "angular-translate-loader-static-files": "2.13.0",
+    "moment" : "2.17.1"
   },
   "overrides": {
     "angular-i18n": {
