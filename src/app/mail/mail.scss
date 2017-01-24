@@ -1,7 +1,8 @@
 mail {
   background-color: #ffffff;
   height: 100vh;
-  overflow : scroll;
+  width : 65vw;
+  overflow: scroll;
 
   #titre-mail {
     padding: 10px;
@@ -17,19 +18,26 @@ mail {
     float: right;
   }
 
-  #body{
-    padding : 10px;
-    text-align : justify;
+  #body {
+    padding: 10px;
+    text-align: justify;
   }
 
-
-  #back-to-list-button{
+  #back-to-list-button {
     display: none;
   }
 
   @media screen and (max-width: 1365px), screen and (max-device-vidth: 1365px) {
-    #back-to-list-button{
+    float: right;
+    width: 80vw;
+
+    #back-to-list-button {
       display: block;
     }
+
   }
+}
+
+.lecture-desactive #back-to-list-button {
+  display: none;
 }

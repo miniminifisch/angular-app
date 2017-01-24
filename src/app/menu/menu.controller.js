@@ -21,6 +21,7 @@
         vm.nomCategorieSelectionnee = "";
         desactiverLesCategories();
       }
+      vm.lectureActive = false;
     }
 
     function desactiverLesCategories(){

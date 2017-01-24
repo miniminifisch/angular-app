@@ -1,6 +1,7 @@
 mails-liste{
   float : left;
   height: 100vh;
+  width : 20vw;
   background-color: #e5e5e5;
   overflow : hidden;
   font-family : 'Trebuchet MS', Helvetica, sans-serif;
@@ -41,6 +42,10 @@ mails-liste{
 
 @media screen and (max-width: 1365px), screen and (max-device-vidth: 1365px) {
   mails-liste {
+    float : none;
+    position : absolute;
+    width : 80vw;
+
     .titre-desktop{
       display: none;
     }

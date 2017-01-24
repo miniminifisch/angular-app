@@ -12,9 +12,7 @@
     vm.revenirAuxMails = revenirAuxMails;
 
     function revenirAuxMails(){
-      console.log(vm.lectureActive);
       vm.lectureActive = false;
-      console.log(vm.lectureActive);
     }
   }
 
