@@ -314,7 +314,7 @@
     gulp.watch(src.applicationTemplates.concat(src.applicationScripts, src.applicationStyle), ['reload']);
   });
 
-  gulp.task('protractor', function(callback) {
+  gulp.task('protractor', function() {
     return gulp.src(src.applicationTests)
       .pipe(gulpProtractorAngular({
         'configFile': 'protractor-config.js',

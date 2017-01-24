@@ -43,6 +43,11 @@ menu {
   menu {
     width : 20vw;
 
+    .titre{
+      font-size : 12px;
+      text-align : center;
+    }
+
     .nom-categorie, .button {
       display: none;
     }
