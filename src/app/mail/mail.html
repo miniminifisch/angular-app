@@ -1,0 +1,10 @@
+<div ng-if="mc.mailSelectionne">
+  <h3 id="titre-mail">{{mc.mailSelectionne.title}}</h3>
+  <div id="details-mail">
+    <span class="strong">{{mc.mailSelectionne.owner}}</span>
+    <span id="date-creation">{{mc.mailSelectionne.created_at}}</span>
+  </div>
+  <div id="body">{{mc.mailSelectionne.body}}</div>
+
+  <button id="back-to-list-button" type="button" class="button button-primary" ng-click="mc.revenirAuxMails()"> <div class="glyph glyph-double-arrow-left"></div> Retour</button>
+</div>

@@ -1,7 +1,5 @@
 docker/dist
 /dev
 /.idea
-/dist
 /node_modules
-/eslint-report.html
 /src/bower_components

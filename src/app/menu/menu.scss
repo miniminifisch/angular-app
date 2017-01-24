@@ -1,0 +1,68 @@
+menu {
+  background-color: #333333;
+  float: left;
+  padding: 10px;
+  margin: 0px;
+  height: 100vh;
+  font-size: 14px;
+
+  .titre {
+    color: #a6a6a6;
+    margin: 10px;
+  }
+
+  .categorie {
+    padding: 10px;
+    color: #f8f8f8;
+    cursor: pointer;
+  }
+
+  .carre {
+    float: right;
+    display: block;
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+  }
+
+  .active {
+    background-color: #e5e5e5;
+    color: #000000;
+  }
+
+  .button {
+    width: 140px;
+    font-size: 14px;
+    display: block;
+    margin: 20px auto;
+  }
+}
+
+@media screen and (max-width: 1365px), screen and (max-device-vidth: 1365px) {
+  menu {
+    .nom-categorie, .button {
+      display: none;
+    }
+
+    .categorie {
+      text-align: center;
+    }
+
+    .carre {
+      float: none;
+      display: inline-block;
+      padding: 10px;
+      margin: 10px;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      -webkit-border-radius: 24px / 24px;
+      -moz-border-radius: 24px / 24px;
+      border-radius: 24px / 24px;
+    }
+
+    .active {
+      background-color: #e5e5e5;
+    }
+  }
+}

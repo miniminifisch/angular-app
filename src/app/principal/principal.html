@@ -1,0 +1,24 @@
+<div id="content-div">
+  <menu
+    id="menu-div"
+    lecture-active="pc.lectureActive"
+    categories="pc.categories"
+    nom-categorie-selectionnee="pc.nomCategorieSelectionnee">
+
+  </menu>
+  <mails-liste id="mails-liste-div"
+               lecture-active="pc.lectureActive"
+               categories="pc.categories"
+               mails="pc.mails"
+               mail-selectionne="pc.mailSelectionne"
+               nom-categorie-selectionnee="pc.nomCategorieSelectionnee">
+
+  </mails-liste>
+  <div id="mail-div">
+    <mail
+      mail-selectionne="pc.mailSelectionne"
+      lecture-active="pc.lectureActive"
+      ng-class="{'lecture-active': pc.lectureActive ==true}"
+      ng-class="{'lecture-desactive': pc.lectureActive ==false}"></mail>
+  </div>
+</div>

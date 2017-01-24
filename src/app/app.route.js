@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('vtc')
+    .module('angularApp')
     .config(RouteConfiguration);
 
   /* @ngInject */

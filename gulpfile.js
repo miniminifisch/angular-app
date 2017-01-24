@@ -20,7 +20,6 @@
   var concat = require('gulp-concat');
   var connect = require('gulp-connect');
   var del = require('del');
-  var eslint = require('gulp-eslint');
   var fs = require('fs');
   var gulp = require('gulp');
   var gulpFilter = require('gulp-filter');
@@ -33,7 +32,6 @@
   var proxy = require('http-proxy-middleware');
   var rename = require('gulp-rename');
   var replace = require('gulp-replace');
-  var reporter = require('eslint-html-reporter');
   var rev = require('gulp-rev');
   var runSequence = require('run-sequence');
   var uglify = require('gulp-uglify');
@@ -46,17 +44,12 @@
   var distFolder = 'docker/dist/' + packageJson.name;
   var gulpProtractorAngular = require('gulp-angular-protractor');
 
-  var argv = require('yargs')
-    .alias('force', 'f')
-    .argv;
-
   gulp.task('default', ['serve']);
 
   var src = {
     applicationScripts: [
       'src/app/*.module.js',
       'src/**/*.js',
-      '!src/properties/properties.*.js',
       '!src/i18n/*.json',
       '!src/**/*.spec.js',
       '!src/**/*___jb_old___',
@@ -79,11 +72,6 @@
       'src/**/*.spec.js',
       '!src/bower_components/**'
     ],
-    applicationProperties: {
-      "dev": 'src/properties/properties.dev.js',
-      "int": 'src/properties/properties.int.js',
-      "prod": 'src/properties/properties.prod.js'
-    },
     vendorScripts: gulp.src(mainBowerFiles()).pipe(gulpFilter('**/*.js')),
     vendorStyle: gulp.src(mainBowerFiles()).pipe(gulpFilter('**/*.css')),
     devStyle: [
@@ -105,7 +93,7 @@
         'build-vendor-scripts',
         'build-vendor-styles',
         'copy-app-assets',
-        'copy-bootstrap-fonts',
+        'copy-garden-fonts',
         'copy-index-html',
         'copy-i18n',
         'copy-mock',
@@ -171,11 +159,6 @@
 
     return gulp.src(src.applicationScripts)
       .pipe(gulpif(!isFinalVersion, sourcemaps.init()))
-      .pipe(eslint())
-      .pipe(eslint.format(reporter, function (results) {
-        fs.writeFileSync(path.join(__dirname, 'eslint-report.html'), results);
-      }))
-      .pipe(gulpif(!argv.force, eslint.failAfterError()))
       .pipe(concat('scripts.js'))
       .pipe(ngAnnotate())
       .pipe(uglify({
@@ -239,11 +222,10 @@
       .pipe(gulp.dest(distFolder + '/assets'));
   });
 
-  gulp.task('copy-bootstrap-fonts', function () {
-
-    return gulp.src(['./src/bower_components/bootstrap/fonts/**/*.woff',
-      './src/bower_components/bootstrap/fonts/**/*.woff2',
-      './src/bower_components/bootstrap/fonts/**/*.ttf'])
+  gulp.task('copy-garden-fonts', function () {
+    return gulp.src(['./src/bower_components/garden/dist/fonts/*.woff',
+      './src/bower_components/garden/dist/fonts/*.eot',
+      './src/bower_components/garden/dist/fonts/*.ttf'])
       .pipe(gulp.dest(distFolder + '/fonts'));
   });
 
@@ -292,7 +274,6 @@
     var applicationTemplate = gulp.src(['./templates/templates*.js'], {read: false, cwd: __dirname + '/' + distFolder});
     var vendorStyle = gulp.src(['./styles/vendor*.css'], {read: false, cwd: __dirname + '/' + distFolder});
     var vendorScript = gulp.src(['./scripts/vendor*.js'], {read: false, cwd: __dirname + '/' + distFolder});
-    var propertiesFile = gulp.src(['./properties/properties*.js'], {read: false, cwd: __dirname + '/' + distFolder});
 
     return gulp.src(distFolder + '/index.html')
       .pipe(inject(applicationStyle, {name: 'application', addRootSlash: false}))
@@ -300,7 +281,6 @@
       .pipe(inject(applicationTemplate, {name: 'templates', addRootSlash: false}))
       .pipe(inject(vendorStyle, {name: 'vendor', addRootSlash: false}))
       .pipe(inject(vendorScript, {name: 'vendor', addRootSlash: false}))
-      .pipe(inject(propertiesFile, {name: 'properties', addRootSlash: false}))
       .pipe(gulp.dest(distFolder));
   });
 
@@ -321,7 +301,6 @@
       .pipe(inject(gulp.src(src.applicationScripts, {read: false}), {name: 'application', ignorePath: 'src'}))
       .pipe(inject(src.vendorStyle, {name: 'vendor', ignorePath: 'src'}))
       .pipe(inject(src.vendorScripts, {name: 'vendor', ignorePath: 'src'}))
-      .pipe(inject(gulp.src(src.applicationProperties.dev, {read: false}), {name: 'properties', ignorePath: 'src'}))
       .pipe(gulp.dest('./dev/'));
   });
 
@@ -343,5 +322,4 @@
         'autoStartStopServer': true
       }));
   });
-
 })();

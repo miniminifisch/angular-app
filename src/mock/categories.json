@@ -1,0 +1,18 @@
+[
+  {
+    "nom" : "Family",
+    "codeCouleur" : "#F39C12"
+  },
+  {
+    "nom" : "To do",
+    "codeCouleur" : "#2E86C1"
+  },
+  {
+    "nom" : "Social",
+    "codeCouleur" : "#8E44AD"
+  },
+  {
+    "nom" : "Friends",
+    "codeCouleur" : "#F7DC6F"
+  }
+]

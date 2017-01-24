@@ -1,0 +1,26 @@
+principal {
+
+
+  @media screen and (max-width: 1365px), screen and (max-device-vidth: 1365px) {
+    #content-div{
+      overflow: visible ;
+    }
+
+    .lecture-active {
+      transform: translate3d(-100px, 0, 0);
+      display: flex;
+      width : 40vw;
+    }
+
+    .lecture-desactive {
+      transform: translate3d(100px, 0, 0);
+      display: flex;
+      width : 20vw;
+    }
+
+    #mail-div {
+      -webkit-transition: 2s;
+      transition: 2s;
+    }
+  }
+}

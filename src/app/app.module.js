@@ -3,15 +3,12 @@
 
   angular.module('templates', []);
 
-  angular.module('vtc', [
+  angular.module('angularApp', [
     'templates',
     'ngRoute',
     'pascalprecht.translate',
     'configuration',
-    'ui.bootstrap',
-    'ngSanitize',
-    'ui.select',
-    'properties'
+    'ngSanitize'
   ]).run(function($rootScope, $location, $anchorScroll, $routeParams) {
     $rootScope.$on('$routeChangeSuccess', function() {
       $location.hash($routeParams.scrollTo);

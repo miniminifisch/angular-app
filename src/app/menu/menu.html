@@ -1,0 +1,9 @@
+<button type="button" class="button button-primary">Compose mail</button>
+
+<section class="row">
+  <div class="titre color-neutral">LABELS</div>
+  <div ng-repeat="categorie in mc.categories" class="categorie" ng-click="mc.trierParCategorie(categorie)" ng-class="{'active': categorie.selectionnee==true}">
+    <span class="nom-categorie">{{categorie.nom}}</span>
+    <span ng-style="{'background-color' : categorie.codeCouleur}" class="carre"></span>
+  </div>
+</section>

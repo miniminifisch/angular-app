@@ -1,0 +1,35 @@
+mail {
+  background-color: #ffffff;
+  height: 100vh;
+  overflow : scroll;
+
+  #titre-mail {
+    padding: 10px;
+    border-bottom: 1px solid #a6a6a6;
+  }
+
+  #details-mail {
+    padding: 10px;
+    border-bottom: 1px solid #a6a6a6;
+  }
+
+  #date-creation {
+    float: right;
+  }
+
+  #body{
+    padding : 10px;
+    text-align : justify;
+  }
+
+
+  #back-to-list-button{
+    display: none;
+  }
+
+  @media screen and (max-width: 1365px), screen and (max-device-vidth: 1365px) {
+    #back-to-list-button{
+      display: block;
+    }
+  }
+}
