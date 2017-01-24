@@ -61,8 +61,7 @@
       'src/app/**/*.css',
       'src/app/**/*.scss',
       'src/css/**/*.css',
-      'src/css/**/*.scss',
-      'src/app/app.responsive.scss' // Le responsive doit toujours figurer en dernier de la liste des appels !
+      'src/css/**/*.scss'
     ],
     applicationTemplates: [
       'src/**/*.html',
@@ -75,11 +74,7 @@
     vendorScripts: gulp.src(mainBowerFiles()).pipe(gulpFilter('**/*.js')),
     vendorStyle: gulp.src(mainBowerFiles()).pipe(gulpFilter('**/*.css')),
     devStyle: [
-      'dev/**/*.css',
-      '!dev/styles/app.responsive.css'
-    ],
-    devResponsiveStyle: [
-      'dev/styles/app.responsive.css'
+      'dev/**/*.css'
     ]
   };
 
@@ -178,8 +173,7 @@
       gulp.src('src/app/**/*.css'),
       gulp.src('src/css/**/*.scss'),
       gulp.src('src/css/**/*.css'),
-      gulp.src('src/app/**/*.scss'),
-      gulp.src('src/app/app.responsive.scss'))
+      gulp.src('src/app/**/*.scss'))
       .pipe(sass().on('error', sass.logError))
       .pipe(concat('style.css'))
       .pipe(minifycss())
@@ -297,7 +291,7 @@
   gulp.task('inject-dev', function () {
 
     return gulp.src('./src/index.html')
-      .pipe(inject(series(gulp.src(src.devStyle, {read: false}), gulp.src(src.devResponsiveStyle, {read: false})), {name: 'application', ignorePath: 'dev'}))
+      .pipe(inject(series(gulp.src(src.devStyle, {read: false})), {name: 'application', ignorePath: 'dev'}))
       .pipe(inject(gulp.src(src.applicationScripts, {read: false}), {name: 'application', ignorePath: 'src'}))
       .pipe(inject(src.vendorStyle, {name: 'vendor', ignorePath: 'src'}))
       .pipe(inject(src.vendorScripts, {name: 'vendor', ignorePath: 'src'}))
