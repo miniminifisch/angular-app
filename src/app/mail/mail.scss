@@ -1,18 +1,18 @@
 mail {
   float: left;
-  background-color: #ffffff;
+  background-color: $color-neutral;
   height: 100vh;
   width: 70vw;
   overflow: scroll;
 
   #titre-mail {
     padding: 10px;
-    border-bottom: 1px solid #a6a6a6;
+    border-bottom: 1px solid $color-default;
   }
 
   #details-mail {
     padding: 10px;
-    border-bottom: 1px solid #a6a6a6;
+    border-bottom: 1px solid $color-default;
   }
 
   #date-creation {

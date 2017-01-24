@@ -1,5 +1,5 @@
 menu {
-  background-color: #333333;
+  background-color: $color-default-darker;
   float: left;
   padding: 10px;
   margin: 0px;
@@ -8,13 +8,13 @@ menu {
   font-size: 14px;
 
   .titre {
-    color: #a6a6a6;
+    color: $color-default;
     margin: 10px;
   }
 
   .categorie {
     padding: 10px;
-    color: #f8f8f8;
+    color: $color-default-lighter;
     cursor: pointer;
   }
 
@@ -27,8 +27,8 @@ menu {
   }
 
   .active {
-    background-color: #e5e5e5;
-    color: #000000;
+    background-color: $color-default-light;
+    color: $color-black;
   }
 
   .button {
@@ -70,7 +70,7 @@ menu {
     }
 
     .active {
-      background-color: #e5e5e5;
+      background-color: $color-default-light;
     }
   }
 }
